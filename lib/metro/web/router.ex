@@ -16,11 +16,8 @@ defmodule Metro.Web.Router do
   scope "/", Metro.Web do
     pipe_through :browser # Use the default browser stack
 
-    get "/", PageController, :index
+    get     "/",      SessionsController, :new
+    post    "/",      SessionsController, :create
+    delete "/logout", SessionsController, :delete
   end
-
-  # Other scopes may use custom stacks.
-  # scope "/api", Metro.Web do
-  #   pipe_through :api
-  # end
 end
