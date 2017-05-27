@@ -9,15 +9,28 @@ defmodule Metro.Web.Router do
     plug :put_secure_browser_headers
   end
 
+  pipeline :browser_auth do
+    plug Guardian.Plug.VerifySession
+    plug Guardian.Plug.LoadResource
+    plug Guardian.Plug.EnsureAuthenticated, handler: Metro.Web.SessionsController
+  end
+
   pipeline :api do
     plug :accepts, ["json"]
   end
 
   scope "/", Metro.Web do
-    pipe_through :browser # Use the default browser stack
+    pipe_through :browser
 
-    get     "/",      SessionsController, :new
-    post    "/",      SessionsController, :create
+    get    "/",       SessionsController, :new
+    post   "/",       SessionsController, :create
     delete "/logout", SessionsController, :delete
+  end
+
+  scope "/admin", Metro.Web do
+    pipe_through :browser
+    pipe_through :browser_auth
+
+    get "/", Admin.DashboardController, :new
   end
 end
