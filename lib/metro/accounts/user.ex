@@ -1,7 +1,11 @@
 defmodule Metro.Accounts.User do
+  @moduledoc """
+  """
+
   use Ecto.Schema
   import Ecto.Changeset
   alias Metro.Accounts.User
+  alias Comeonin.Bcrypt
 
   schema "accounts_users" do
     field :email, :string
@@ -34,7 +38,7 @@ defmodule Metro.Accounts.User do
   defp hash_password(changeset) do
     case changeset do
       %Ecto.Changeset{valid?: true, changes: %{password: pass}} ->
-        put_change(changeset, :password_hash, Comeonin.Bcrypt.hashpwsalt(pass))
+        put_change(changeset, :password_hash, Bcrypt.hashpwsalt(pass))
       _ ->
         changeset
     end

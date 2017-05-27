@@ -3,6 +3,7 @@ defmodule Metro.Web.SessionsController do
 
   alias Metro.Accounts
   alias Ueberauth.Strategy.Helpers
+  alias Guardian
   plug Ueberauth
 
   def new(conn, _params) do

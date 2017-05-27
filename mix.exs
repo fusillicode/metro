@@ -39,7 +39,8 @@ defmodule Metro.Mixfile do
      {:ueberauth_identity, "~> 0.2"},
      {:guardian, "~> 0.14"},
      {:comeonin, "~> 3.0"},
-     {:cowboy, "~> 1.0"}]
+     {:cowboy, "~> 1.0"},
+     {:credo, "~> 0.7.4", only: [:dev, :test], runtime: false}]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.

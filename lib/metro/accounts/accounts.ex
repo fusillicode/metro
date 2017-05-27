@@ -1,4 +1,7 @@
 defmodule Metro.Accounts do
+  @moduledoc """
+  """
+
   import Comeonin.Bcrypt
   import Ecto.Query, warn: false
 
@@ -9,7 +12,7 @@ defmodule Metro.Accounts do
   def list_users, do: Repo.all(User)
   def get_user!(id), do: Repo.get!(User, id)
   def delete_user(%User{} = user), do: Repo.delete(user)
-  def delete_all(), do: Repo.delete_all(User)
+  def delete_all, do: Repo.delete_all(User)
 
   def register_user(attrs \\ %{}) do
     %User{}

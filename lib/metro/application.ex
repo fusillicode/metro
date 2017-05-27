@@ -1,4 +1,7 @@
 defmodule Metro.Application do
+  @moduledoc """
+  """
+
   use Application
 
   # See http://elixir-lang.org/docs/stable/elixir/Application.html
@@ -12,7 +15,8 @@ defmodule Metro.Application do
       supervisor(Metro.Repo, []),
       # Start the endpoint when the application starts
       supervisor(Metro.Web.Endpoint, []),
-      # Start your own worker by calling: Metro.Worker.start_link(arg1, arg2, arg3)
+      # Start your own worker by calling:
+      # Metro.Worker.start_link(arg1, arg2, arg3)
       # worker(Metro.Worker, [arg1, arg2, arg3]),
     ]
 
