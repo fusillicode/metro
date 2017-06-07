@@ -16,7 +16,7 @@ defmodule Metro.Web.SessionsController do
         conn
         |> Guardian.Plug.sign_in(user)
         |> put_flash(:info, "Successfully authenticated.")
-        |> redirect(to: "/")
+        |> redirect(to: dashboard_path(conn, :index))
       {:error, reason} ->
         conn
         |> put_flash(:error, reason)

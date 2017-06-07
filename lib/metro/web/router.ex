@@ -12,6 +12,8 @@ defmodule Metro.Web.Router do
   pipeline :browser_auth do
     plug Guardian.Plug.VerifySession
     plug Guardian.Plug.LoadResource
+    plug Guardian.Plug.EnsureResource,
+      handler: Metro.Web.SessionsController
     plug Guardian.Plug.EnsureAuthenticated,
       handler: Metro.Web.SessionsController
   end
@@ -32,6 +34,6 @@ defmodule Metro.Web.Router do
     pipe_through :browser
     pipe_through :browser_auth
 
-    get "/", Admin.DashboardController, :new
+    get "/", Admin.DashboardController, :index
   end
 end
