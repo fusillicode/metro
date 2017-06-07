@@ -1,6 +1,10 @@
 defmodule Metro.Web.Endpoint do
   use Phoenix.Endpoint, otp_app: :metro
 
+  if Application.get_env(:metro, :sql_sandbox) do
+    plug Phoenix.Ecto.SQL.Sandbox
+  end
+
   socket "/socket", Metro.Web.UserSocket
 
   # Serve at "/" the static files from "priv/static" directory.
