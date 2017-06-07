@@ -37,6 +37,7 @@ defmodule Metro.Web.SessionsController do
     |> redirect(to: "/")
   end
 
+  def no_resource(conn, _params), do: unauthenticated(conn, _params)
   def unauthenticated(conn, _params) do
     conn
     |> put_flash(:error, "You shall not pass!")
