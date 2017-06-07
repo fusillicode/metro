@@ -7,11 +7,11 @@ defmodule Metro.Web.Router do
     plug :fetch_flash
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug Guardian.Plug.VerifySession
+    plug Guardian.Plug.LoadResource
   end
 
   pipeline :browser_auth do
-    plug Guardian.Plug.VerifySession
-    plug Guardian.Plug.LoadResource
     plug Guardian.Plug.EnsureResource,
       handler: Metro.Web.SessionsController
     plug Guardian.Plug.EnsureAuthenticated,
@@ -23,7 +23,7 @@ defmodule Metro.Web.Router do
   end
 
   scope "/", Metro.Web do
-    pipe_through :browser
+    pipe_through [:browser]
 
     get    "/",       SessionsController, :new
     post   "/",       SessionsController, :create
@@ -31,8 +31,7 @@ defmodule Metro.Web.Router do
   end
 
   scope "/admin", Metro.Web do
-    pipe_through :browser
-    pipe_through :browser_auth
+    pipe_through [:browser, :browser_auth]
 
     get "/", Admin.DashboardController, :index
   end

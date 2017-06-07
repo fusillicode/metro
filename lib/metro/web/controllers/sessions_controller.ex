@@ -7,7 +7,10 @@ defmodule Metro.Web.SessionsController do
   plug Ueberauth
 
   def new(conn, _params) do
-    render conn, "new.html", session_create_url: Helpers.callback_url(conn)
+    case Guardian.Plug.authenticated?(conn) do
+      true  -> redirect(conn, to: dashboard_path(conn, :index))
+      false -> render(conn, "new.html", session_create_url: Helpers.callback_url(conn))
+    end
   end
 
   def create(%{assigns: %{ueberauth_auth: auth}} = conn, _params) do
