@@ -41,6 +41,7 @@ defmodule Metro.Web do
       import Metro.Web.Router.Helpers
       import Metro.Web.ErrorHelpers
       import Metro.Web.Gettext
+      import Metro.Web.ViewHelpers
     end
   end
 

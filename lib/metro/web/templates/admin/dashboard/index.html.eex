@@ -1,5 +1,5 @@
 <ul class="nav nav-pills pull-right">
   <li>
-    <%= link "Sign out", to: sessions_path(@conn, :delete, @current_user), method: "delete" %>
+    <%= link "Sign out", to: sessions_path(@conn, :delete), method: "delete" %>
   </li>
 </ul>

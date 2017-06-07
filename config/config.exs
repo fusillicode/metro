@@ -41,8 +41,7 @@ config :guardian, Guardian,
   ttl: { 30, :days },
   allowed_drift: 2000,
   secret_key: "J1debCKFp5ahjLSQIKouXC5Tr4lBy+Z7xDk90x4QO1L2pxsoAmDO48X659Td0Bfa",
-  serializer: Metro.GuardianSerializer,
-  hooks: Metro.GuardianHooks
+  serializer: Metro.GuardianSerializer
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
