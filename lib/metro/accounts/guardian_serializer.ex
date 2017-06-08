@@ -4,8 +4,7 @@ defmodule Metro.GuardianSerializer do
 
   @behaviour Guardian.Serializer
 
-  alias Metro.Repo
-  alias Metro.Accounts.User
+  alias Metro.{Repo, Accounts.User}
 
   def for_token(%User{} = user), do: {:ok, "User:#{user.id}"}
   def for_token(_), do: {:error, "Unknown resource type"}

@@ -5,8 +5,7 @@ defmodule Metro.Accounts do
   import Comeonin.Bcrypt
   import Ecto.Query, warn: false
 
-  alias Metro.Repo
-  alias Metro.Accounts.User
+  alias Metro.{Repo, Accounts.User}
   alias Ueberauth.Auth
 
   def list_users, do: Repo.all(User)
