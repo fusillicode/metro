@@ -8,7 +8,7 @@ defmodule Metro.Web.SessionsController do
 
   def new(conn, _params) do
     case Guardian.Plug.authenticated?(conn) do
-      true  -> redirect(conn, to: dashboard_path(conn, :index))
+      true  -> redirect(conn, to: admin_dashboard_path(conn, :index))
       false -> render(conn, "new.html", session_create_url: Helpers.callback_url(conn))
     end
   end
@@ -19,7 +19,7 @@ defmodule Metro.Web.SessionsController do
         conn
         |> Guardian.Plug.sign_in(user)
         |> put_flash(:info, "Successfully authenticated.")
-        |> redirect(to: dashboard_path(conn, :index))
+        |> redirect(to: admin_dashboard_path(conn, :index))
       {:error, reason} ->
         conn
         |> put_flash(:error, reason)

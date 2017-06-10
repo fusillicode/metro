@@ -17,7 +17,7 @@ defmodule Metro.Features.UserLogin do
       |> click(button("Login"))
       |> assert_has(css(".alert", text: "Successfully authenticated."))
 
-      assert current_path(context[:session]) == dashboard_path(Endpoint, :index)
+      assert current_path(context[:session]) == admin_dashboard_path(Endpoint, :index)
     end
   end
 

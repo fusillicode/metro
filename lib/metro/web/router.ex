@@ -30,7 +30,7 @@ defmodule Metro.Web.Router do
     delete "/logout", SessionsController, :delete
   end
 
-  scope "/admin", Metro.Web do
+  scope "/admin", Metro.Web, as: :admin do
     pipe_through [:browser, :browser_auth]
 
     get "/", Admin.DashboardController, :index
