@@ -28,4 +28,8 @@ npm-debug.log
 /config/dev.exs
 /config/test.exs
 
+# Apple stuff...
 .DS_Store
+
+# For Wallaby feature tests
+screenshots/
