@@ -23,6 +23,14 @@ defmodule Metro.Web.ConnCase do
 
       # The default endpoint for testing
       @endpoint Metro.Web.Endpoint
+
+      def login(%Plug.Conn{} = conn, user) do
+        conn
+        |> get(sessions_path(conn, :new))
+        |> Guardian.Plug.sign_in(user)
+        |> send_resp(200, "Flush the session")
+        |> recycle()
+      end
     end
   end
 
@@ -34,5 +42,4 @@ defmodule Metro.Web.ConnCase do
     end
     {:ok, conn: Phoenix.ConnTest.build_conn()}
   end
-
 end

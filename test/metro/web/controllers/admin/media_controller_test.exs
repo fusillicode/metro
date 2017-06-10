@@ -1,7 +1,7 @@
 defmodule Metro.Web.Admin.MediaControllerTest do
   use Metro.Web.ConnCase
 
-  alias Metro.Uploads
+  alias Metro.{Uploads, Accounts}
 
   @create_attrs %{name: "some name", path: "some path"}
   @update_attrs %{name: "some updated name", path: "some updated path"}
@@ -13,7 +13,9 @@ defmodule Metro.Web.Admin.MediaControllerTest do
   end
 
   test "lists all entries on index", %{conn: conn} do
-    conn = get conn, admin_media_path(conn, :index)
+    {:ok, user} = Accounts.register_user(%{email: "joe@test.com", password: "password"})
+    conn = login(conn, user)
+    conn = get(conn, admin_media_path(conn, :index))
     assert html_response(conn, 200) =~ "Listing Media"
   end
 
