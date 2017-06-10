@@ -4,16 +4,12 @@ use Mix.Config
 # you can enable the server option below.
 config :metro, Metro.Web.Endpoint,
   http: [port: 4001],
-  server: false
+  server: true
+
+# For Wallaby features tests
+config :metro, :sql_sandbox, true
 
 # Print only warnings and errors during test
 config :logger, level: :warn
 
-# Configure your database
-config :metro, Metro.Repo,
-  adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
-  database: "metro_test",
-  hostname: "localhost",
-  pool: Ecto.Adapters.SQL.Sandbox
+import_config "test.secret.exs"
