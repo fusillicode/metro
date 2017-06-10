@@ -1,0 +1,18 @@
+<h2>Show Media</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @media.name %>
+  </li>
+
+  <li>
+    <strong>Path:</strong>
+    <%= @media.path %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: admin_media_path(@conn, :edit, @media) %></span>
+<span><%= link "Back", to: admin_media_path(@conn, :index) %></span>

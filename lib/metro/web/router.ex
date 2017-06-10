@@ -34,5 +34,7 @@ defmodule Metro.Web.Router do
     pipe_through [:browser, :browser_auth]
 
     get "/", Admin.DashboardController, :index
+
+    resources "/media", Admin.MediaController
   end
 end
