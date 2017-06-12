@@ -24,9 +24,11 @@ defmodule Metro.Web.ConnCase do
       # The default endpoint for testing
       @endpoint Metro.Web.Endpoint
 
+      def login(user), do: build_conn() |> login(user)
       def login(%Plug.Conn{} = conn, user) do
         conn
         |> get(sessions_path(conn, :new))
+        |> Map.update!(:state, fn (_) -> :set end)
         |> Guardian.Plug.sign_in(user)
         |> send_resp(200, "Flush the session")
         |> recycle()
