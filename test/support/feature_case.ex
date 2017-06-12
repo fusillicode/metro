@@ -1,4 +1,4 @@
-defmodule Metro.FeatureCase do
+defmodule Metro.Web.FeatureCase do
   use ExUnit.CaseTemplate
 
   using do

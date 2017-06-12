@@ -1,5 +1,5 @@
-defmodule Metro.Features.UserLogin do
-  use Metro.FeatureCase, async: true
+defmodule Metro.Web.Features.UserLogin do
+  use Metro.Web.FeatureCase, async: true
 
   alias Metro.Accounts
 
