@@ -33,3 +33,6 @@ npm-debug.log
 
 # For Wallaby feature tests
 screenshots/
+
+# For Drab
+/priv/hashes_expressions.drab.cache.*

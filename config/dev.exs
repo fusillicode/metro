@@ -37,7 +37,7 @@ config :metro, Metro.Web.Endpoint,
       ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
       ~r{priv/gettext/.*(po)$},
       ~r{lib/metro/web/views/.*(ex)$},
-      ~r{lib/metro/web/templates/.*(eex)$}
+      ~r{lib/metro/web/templates/.*(eex|drab)$}
     ]
   ]
 

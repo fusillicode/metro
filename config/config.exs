@@ -43,6 +43,10 @@ config :guardian, Guardian,
   secret_key: "J1debCKFp5ahjLSQIKouXC5Tr4lBy+Z7xDk90x4QO1L2pxsoAmDO48X659Td0Bfa",
   serializer: Metro.GuardianSerializer
 
+# Drab config
+config :phoenix, :template_engines,
+  drab: Drab.Live.Engine
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"
