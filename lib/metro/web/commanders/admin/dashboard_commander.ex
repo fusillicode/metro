@@ -3,7 +3,6 @@ defmodule Metro.Web.Admin.DashboardCommander do
 
   def uppercase(socket, sender) do
     text = sender.params["text_to_uppercase"]
-    IO.inspect text
-    poke socket, nil, "index.html", text: String.upcase(text)
+    poke socket, text: String.upcase(text)
   end
 end
