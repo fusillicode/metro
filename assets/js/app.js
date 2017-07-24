@@ -21,20 +21,58 @@ import "phoenix_html"
 // import socket from "./socket"
 require('bootstrap-loader');
 
-import loadView from './views/loadView';
+// import loadView from './views/loadView';
 
-function handleDOMContentLoaded() {
-  const viewName = document.getElementsByTagName('body')[0].dataset.jsViewPath;
+// function handleDOMContentLoaded() {
+//   const viewName = document.getElementsByTagName('body')[0].dataset.jsViewPath;
 
-  const view = loadView(viewName);
-  view.mount();
+//   const view = loadView(viewName);
+//   view.mount();
 
-  window.currentView = view;
+//   window.currentView = view;
+// }
+
+// function handleDocumentUnload() {
+//   window.currentView.unmount();
+// }
+
+// window.addEventListener('DOMContentLoaded', handleDOMContentLoaded, false);
+// window.addEventListener('unload', handleDocumentUnload, false);
+
+
+import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
+
+import FineUploaderTraditional from 'fine-uploader-wrappers'
+import Gallery from 'react-fine-uploader'
+
+// ...or load this specific CSS file using a <link> tag in your document
+import 'react-fine-uploader/gallery/gallery.css'
+
+const uploader = new FineUploaderTraditional({
+    options: {
+        chunking: {
+            enabled: true
+        },
+        deleteFile: {
+            enabled: true,
+            endpoint: '/admin/media'
+        },
+        request: {
+            endpoint: '/admin/media'
+        },
+        retry: {
+            enableAuto: true
+        }
+    }
+})
+
+class UploadComponent extends Component {
+    render() {
+        return (
+            <Gallery uploader={ uploader } />
+        )
+    }
 }
 
-function handleDocumentUnload() {
-  window.currentView.unmount();
-}
-
-window.addEventListener('DOMContentLoaded', handleDOMContentLoaded, false);
-window.addEventListener('unload', handleDocumentUnload, false);
+ReactDOM.render(<UploadComponent/>, document.getElementById('gallery'));
