@@ -7,4 +7,6 @@
     <button drab-event="click" drab-handler="uppercase">Upcase</button>
     <button drab-event="click" drab-handler="lowercase">Downcase</button>
   </form>
+  asd
+  <%= react_component("Components.Uploader", %{rendering_type: "client-side"}) %>
 </ul>

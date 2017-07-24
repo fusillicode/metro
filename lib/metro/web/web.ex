@@ -42,6 +42,8 @@ defmodule Metro.Web do
       import Metro.Web.ErrorHelpers
       import Metro.Web.Gettext
       import Metro.Web.ViewHelpers
+
+      import ReactPhoenix.ClientSide
     end
   end
 

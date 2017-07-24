@@ -19,3 +19,10 @@ import "phoenix_html"
 // paths "./socket" or full ones "web/static/js/socket".
 
 // import socket from "./socket"
+
+import 'react-phoenix'
+
+import Uploader from "./components/uploader"
+window.Components = {
+  Uploader
+}

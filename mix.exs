@@ -43,7 +43,8 @@ defmodule Metro.Mixfile do
      {:credo, "~> 0.7.4", only: [:dev, :test], runtime: false},
      {:wallaby, "~> 0.17.0"},
      {:ex_machina, "~> 0.2", only: [:test]},
-     {:drab, "~> 0.5"}
+     {:drab, "~> 0.5"},
+     {:react_phoenix, "~> 0.4.3"}
     ]
   end
 

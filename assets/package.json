@@ -6,13 +6,22 @@
     "watch": "brunch watch --stdin"
   },
   "dependencies": {
+    "bootstrap": "~3.3.7",
+    "fine-uploader": "^5.14.5",
+    "jquery": ">= 3.1.1",
     "phoenix": "file:../deps/phoenix",
     "phoenix_html": "file:../deps/phoenix_html",
-    "jquery": ">= 3.1.1",
-    "bootstrap": "~3.3.7"
+    "react": "^15.6.1",
+    "react-addons-css-transition-group": "^15.6.0",
+    "react-fine-uploader": "^1.0.2",
+    "react-phoenix": "file:../deps/react_phoenix",
+    "react-stdio": "^3.1.0"
   },
   "devDependencies": {
     "babel-brunch": "6.0.6",
+    "babel-cli": "^6.24.1",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.24.1",
     "brunch": "2.10.7",
     "clean-css-brunch": "2.10.0",
     "uglify-js-brunch": "2.1.1"

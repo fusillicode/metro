@@ -47,6 +47,10 @@ config :guardian, Guardian,
 config :phoenix, :template_engines,
   drab: Drab.Live.Engine
 
+# react-phoenix config
+config :react_phoenix,
+  compiled_path: Path.join(["priv", "static", "js", "components"])
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"
