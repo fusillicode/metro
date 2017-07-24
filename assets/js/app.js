@@ -59,7 +59,10 @@ const uploader = new FineUploaderTraditional({
             endpoint: '/admin/media'
         },
         request: {
-            endpoint: '/admin/media'
+            endpoint: '/admin/media',
+            customHeaders: {
+                "X-CSRF-TOKEN": document.querySelector("meta[name=csrf]").content
+            }
         },
         retry: {
             enableAuto: true
